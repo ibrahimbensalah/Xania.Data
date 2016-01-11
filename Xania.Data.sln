@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xania.Data.Core", "Xania.Data.Core\Xania.Data.Core.csproj", "{6C317C37-45F4-41AF-8940-3A3C0F7466CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3260AEBC-FE34-4822-B1FA-27F2E5CE6B87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2B3C0858-7CD9-490F-912D-BACDC97F5FAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xania.Data.EntityFramework", "Xania.Data.EntityFramework\Xania.Data.EntityFramework.csproj", "{3E4640FD-1A59-44AE-AE91-FBB4F8BC3AC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xania.Data.Tests", "Xania.Data.Tests\Xania.Data.Tests.csproj", "{2C25901E-195E-459C-9E2E-71E3C3475E2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C317C37-45F4-41AF-8940-3A3C0F7466CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C317C37-45F4-41AF-8940-3A3C0F7466CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C317C37-45F4-41AF-8940-3A3C0F7466CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C317C37-45F4-41AF-8940-3A3C0F7466CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E4640FD-1A59-44AE-AE91-FBB4F8BC3AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E4640FD-1A59-44AE-AE91-FBB4F8BC3AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E4640FD-1A59-44AE-AE91-FBB4F8BC3AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E4640FD-1A59-44AE-AE91-FBB4F8BC3AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C25901E-195E-459C-9E2E-71E3C3475E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C25901E-195E-459C-9E2E-71E3C3475E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C25901E-195E-459C-9E2E-71E3C3475E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C25901E-195E-459C-9E2E-71E3C3475E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C317C37-45F4-41AF-8940-3A3C0F7466CC} = {3260AEBC-FE34-4822-B1FA-27F2E5CE6B87}
+		{3E4640FD-1A59-44AE-AE91-FBB4F8BC3AC5} = {3260AEBC-FE34-4822-B1FA-27F2E5CE6B87}
+		{2C25901E-195E-459C-9E2E-71E3C3475E2E} = {2B3C0858-7CD9-490F-912D-BACDC97F5FAD}
+	EndGlobalSection
+EndGlobal
