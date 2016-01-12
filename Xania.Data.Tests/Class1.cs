@@ -8,28 +8,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using FluentAssertions;
 using NUnit.Framework;
+using Xania.Data.EntityFramework;
 
 namespace Xania.Data.Tests
 {
     public class EdmxReaderTests
     {
+        private readonly DbContextDescriptor<XaniaDbContext> _descriptor;
+
         public EdmxReaderTests()
         {
             Database.SetInitializer<XaniaDbContext>(null);
-
-            using (var db = new XaniaDbContext())
-            using (var fs = new FileStream("c:\\dev\\edmx.xml", FileMode.Create, FileAccess.Write))
-            {
-                var writer = new XmlTextWriter(fs, Encoding.Default);
-                EdmxWriter.WriteEdmx(db, writer);
-            }
+            _descriptor = DbContextDescriptor.Create<XaniaDbContext>();
         }
 
         [Test]
         public void Should_discover_correct_entity_types()
         {
-            var expectedTypes = new[] {typeof(Organisation), typeof(Employee), typeof(Role)};
+            _descriptor.GetEntityTypes().Should().HaveCount(3);
+            _descriptor.GetEntityTypes().Select(e => e.ClrType).Should()
+                .BeEquivalentTo(typeof(Organisation), typeof(Employee), typeof(Role));
+        }
+
+        [Test]
+        public void Should_discover_correct_entity_associations()
+        {
+            _descriptor.GetAssociations().Should().HaveCount(1);
+            _descriptor.GetAssociations().Select(e => e.Name).Should()
+                .BeEquivalentTo("Organisation_Employees");
+        }
+
+        [Test]
+        public void Should_discover_correct_association_ends()
+        {
+            var asso = _descriptor.GetAssociations()
+                .Single(e => e.Name.Equals("Organisation_Employees"));
+            asso.Ends.Should().HaveCount(2);
+            asso.Ends.Select(e => e.EntityType.ClrType).Should()
+                .BeEquivalentTo(typeof(Organisation), typeof(Employee));
         }
     }
 
@@ -64,7 +82,7 @@ namespace Xania.Data.Tests
 
         public string LastName { get; set; }
 
-        // public int OrganisationId { get; set; }
+        public int OrganisationId { get; set; }
 
         public virtual Organisation Organisation { get; set; }
     }
